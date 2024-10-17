@@ -30,7 +30,7 @@ export default function Products() {
                                 <Link to={`../product/${product.id}`}>
                                     <img src={product.image} className='w-100 product-img mb-3' />
                                     <p className='text-main'>{product.title.split(' ').slice(0, 2).join(' ')}</p>
-
+                                    <h1>hhfhfhfhfhfhfhfhfh</h1>
                                     <div className="d-flex justify-content-between">
                                         <span className='fs-5'>{product.price}$</span>
                                         <span>
