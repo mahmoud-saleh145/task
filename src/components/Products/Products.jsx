@@ -25,12 +25,11 @@ export default function Products() {
 
                     data.data.map((product, i) => (
 
-                        <div className="col-md-3 col-sm-6 " key={i}>
+                        <div className="col-md-3 col-sm-4 " key={i}>
                             <div className='product rounded p-3 overflow-hidden '>
                                 <Link to={`../product/${product.id}`}>
                                     <img src={product.image} className='w-100 product-img mb-3' />
                                     <p className='text-main'>{product.title.split(' ').slice(0, 2).join(' ')}</p>
-                                    <h1>hhfhfhfhfhfhfhfhfh</h1>
                                     <div className="d-flex justify-content-between">
                                         <span className='fs-5'>{product.price}$</span>
                                         <span>
