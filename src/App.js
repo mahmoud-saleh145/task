@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
+import Home from './Pages/Home/Home';
+import LayOut from './Pages/Layout/LayOut';
+import NotFound from './Pages/NotFound/NotFound';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import Category from './components/Category/Category';
+
+import Specific from './components/Specific/Specific';
+
+
+
+
+
 
 function App() {
+
+  const queryClient = new QueryClient()
+  const routers = createBrowserRouter([
+    {
+      path: '',
+      element: <LayOut />,
+      children: [
+        {
+          index: true, element: <Home />,
+        },
+        { path: '*', element: <NotFound /> },
+        { path: 'product/:id', element: <ProductDetails /> },
+        { path: 'category', element: <Category /> },
+        { path: 'category/:sup', element: <Specific /> },
+
+
+
+      ]
+    }
+  ])
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={routers}></RouterProvider>
+    </QueryClientProvider>
+  )
 }
 
 export default App;
