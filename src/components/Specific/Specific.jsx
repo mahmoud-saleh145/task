@@ -9,7 +9,7 @@ export default function Specific() {
     const [isLoading, setLoader] = useState(false)
     const [specific, setSpecific] = useState([])
     let { sup } = useParams()
-    async function getSpecificProducts() {
+    function getSpecificProducts() {
         setLoader(true)
         return axios.get(`https://fakestoreapi.com/products/category/${sup}`)
             .then((response) => {

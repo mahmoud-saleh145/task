@@ -9,14 +9,12 @@ export default function Category() {
     const [category, setCategory] = useState([])
     const [error, setError] = useState('')
 
-    async function getAllCategory() {
+    function getAllCategory() {
         setLoader(true)
         return axios.get(`https://fakestoreapi.com/products/categories`)
             .then((response) => {
                 setCategory(response.data)
                 setLoader(false)
-
-
             })
             .catch((err) => {
                 setError(err.message)
